@@ -1,7 +1,7 @@
 ---
 title: "GW Assignment - Biden Transition"
-author: "YOUR NAME HERE"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jackie Walsh"
+date: "12.01.2020"
 output: html_document
 ---
 
@@ -36,7 +36,7 @@ Below write code to show the new names added to the agency review team lists sin
 
 ```{r, echo=FALSE}
 
-
+newnames
 
  
 
@@ -50,7 +50,8 @@ Add data to show the total number of people appointed to each agency team, along
 
 ```{r, echo=FALSE}
 
-
+agencycount_compare %>%
+  filter (change >0)
 
 
 
@@ -63,9 +64,9 @@ Show the top 10 **largest** agency review teams as of today:
 
 ```{r, echo=FALSE}
 
-
-
-
+agencycount_compare %>%
+  arrange(desc(current_count)) %>%
+  filter (current_count >22)
 
 
 ```
