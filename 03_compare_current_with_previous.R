@@ -34,7 +34,7 @@ staff_data_archived <- readRDS("archived_data/staff_data_archived_2020_12_01t14_
 #find new records of names added since previous
 newnames <- anti_join(staff_data_scraped, staff_data_archived, by = "idstring")
 
-#names of new staff
+#list new names
 saveRDS(newnames, "processed_data/newnames.rds")
 
 #### AGENCY TEAMS ##### --------------------------------------------------------
