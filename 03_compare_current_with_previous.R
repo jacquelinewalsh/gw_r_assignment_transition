@@ -24,10 +24,20 @@ source("02_scrape_nominees.R")
 
 #Your code here#
 
+#load current data
+staff_data_scraped <- readRDS("processed_data/transition_data_scraped.rds")
+staff_data_scraped
 
+#load archived data to compare against 
+staff_data_archived <- readRDS("archived_data/staff_data_archived_2020_12_01t14_49.rds")
 
+#find new records of names added since previous
+newnames <- anti_join(staff_data_scraped, staff_data_archived, by = "idstring")
 
+### SAVE results #### 
 
+#names of new staff
+saveRDS(newnames, "processed_data/newnames.rds")
 
 #### AGENCY TEAMS ##### --------------------------------------------------------
 
