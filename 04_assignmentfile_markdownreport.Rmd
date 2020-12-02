@@ -18,7 +18,7 @@ options(dplyr.summarise.inform = FALSE)
 
 #run the script for step 03 to update the datasets to caputre the current live verions
 #and load all the new dataset objects into the environment (you'll see them populate on the upper right window)
-source("03_analysis.R")
+source("03_compare_current_with_previous.R")
 
 
 ```
@@ -36,6 +36,7 @@ Below write code to show the new names added to the agency review team lists sin
 
 ```{r, echo=FALSE}
 
+gttables <-
 newnames
 
  
@@ -50,6 +51,7 @@ Add data to show the total number of people appointed to each agency team, along
 
 ```{r, echo=FALSE}
 
+gttables <-
 agencycount_compare %>%
   filter (change >0)
 
@@ -64,6 +66,7 @@ Show the top 10 **largest** agency review teams as of today:
 
 ```{r, echo=FALSE}
 
+gttables <-
 agencycount_compare %>%
   arrange(desc(current_count)) %>%
   filter (current_count >22)
@@ -76,6 +79,7 @@ Show the top **smallest** agency review teams as of today - which we'll define h
 ```{r, echo=FALSE}
 
 
+gttables <-
 agencycount_compare %>%
   filter (current_count <5)
 
@@ -97,6 +101,7 @@ Below write code to show the new names added to the senior staff lists since the
 ```{r, echo=FALSE}
 
 
+gttables <-
 newnames
  
 
@@ -111,6 +116,7 @@ Add code to show the total number of people currently named to the WH senior sta
 ```{r, echo=FALSE}
 
 
+gttables <-
 nrow(staff_data_scraped)
 nrow(staff_data_archived)
 
