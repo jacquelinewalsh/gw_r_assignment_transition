@@ -37,7 +37,8 @@ Below write code to show the new names added to the agency review team lists sin
 ```{r, echo=FALSE}
 
 gttables <-
-newnames
+newnames %>%
+  title = "New Names Added to the Agency Review Team" %>%
 
  
 
@@ -54,7 +55,7 @@ Add data to show the total number of people appointed to each agency team, along
 gttables <-
 agencycount_compare %>%
   filter (change >0)
-
+  title = "Total Number of People Appointed to Each Agency Team (with change since previous count)" %>%
 
 
 ```
@@ -69,7 +70,8 @@ Show the top 10 **largest** agency review teams as of today:
 gttables <-
 agencycount_compare %>%
   arrange(desc(current_count)) %>%
-  filter (current_count >22)
+  filter (current_count >22) %>%
+  title = "Top 10 Largest Agency Review Teams"
 
 
 ```
@@ -81,8 +83,8 @@ Show the top **smallest** agency review teams as of today - which we'll define h
 
 gttables <-
 agencycount_compare %>%
-  filter (current_count <5)
-
+  filter (current_count <5) %>%
+  title = "Smallest Agency Review Teams"
  
 
 ```
@@ -102,7 +104,8 @@ Below write code to show the new names added to the senior staff lists since the
 
 
 gttables <-
-newnames
+newnames %>%
+  title = "New Names Added to the Senior Staff"
  
 
 ```
@@ -117,11 +120,9 @@ Add code to show the total number of people currently named to the WH senior sta
 
 
 gttables <-
-nrow(staff_data_scraped)
-nrow(staff_data_archived)
-
-count(staff_data_scraped) <-
-  count(staff_data_archived)
+count(staff_data_scraped) <- count(staff_data_archived) %>%
+  title = "Total Number of People Currently Named to the WH Senior Staff vs. Previous Total Number"
+  
 
 
 ```
