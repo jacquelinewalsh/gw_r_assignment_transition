@@ -40,7 +40,7 @@ newnames %>%
   gt() %>%
   tab_header (
   title = "New Names Added to the Agency Review Team") %>%
-    label (name = "Name", agency = "Agency", on_multiple_teams = "On Multiple Teams", most_recent_employment = "Most Recent Employment", source_of_funding = "Source of Funding")
+    label (name = "Name", agency = "Agency")
       
  
 
