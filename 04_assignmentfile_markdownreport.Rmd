@@ -36,10 +36,12 @@ Below write code to show the new names added to the agency review team lists sin
 
 ```{r, echo=FALSE}
 
-gttables <-
 newnames %>%
-  title = "New Names Added to the Agency Review Team" %>%
-
+  gt() %>%
+  tab_header (
+  title = "New Names Added to the Agency Review Team") %>%
+    label (name = "Name", agency = "Agency", on_multiple_teams = "On Multiple Teams", most_recent_employment = "Most Recent Employment", source_of_funding = "Source of Funding")
+      
  
 
 ```
@@ -52,10 +54,12 @@ Add data to show the total number of people appointed to each agency team, along
 
 ```{r, echo=FALSE}
 
-gttables <-
 agencycount_compare %>%
   filter (change >0)
-  title = "Total Number of People Appointed to Each Agency Team (with change since previous count)" %>%
+  gt () %>%
+  tab_header(
+  title = "Total Number of People Appointed to Each Agency Team (with change since previous count)" )%>%
+    label (agency = "Agency", current_count = "Current Count", previous_count = "Previous Count", change = "Change")
 
 
 ```
@@ -67,11 +71,13 @@ Show the top 10 **largest** agency review teams as of today:
 
 ```{r, echo=FALSE}
 
-gttables <-
 agencycount_compare %>%
   arrange(desc(current_count)) %>%
   filter (current_count >22) %>%
-  title = "Top 10 Largest Agency Review Teams"
+  gt()%>%
+  tab_header(
+  title = "Top 10 Largest Agency Review Teams") %>%
+  label (agency = "Agency", current_count = "Current Count")
 
 
 ```
@@ -81,10 +87,13 @@ Show the top **smallest** agency review teams as of today - which we'll define h
 ```{r, echo=FALSE}
 
 
-gttables <-
 agencycount_compare %>%
   filter (current_count <5) %>%
-  title = "Smallest Agency Review Teams"
+  gt() %>%
+ tab_header(
+  title = "Smallest Agency Review Teams") %>%
+  label(agency = "Agency", current_count = "Current Count")
+
  
 
 ```
@@ -103,9 +112,11 @@ Below write code to show the new names added to the senior staff lists since the
 ```{r, echo=FALSE}
 
 
-gttables <-
 newnames %>%
-  title = "New Names Added to the Senior Staff"
+  gt() %>%
+  tab_header(
+  title = "New Names Added to the Senior Staff") %>%
+  label(name = "Name", title = "Title")
  
 
 ```
@@ -119,9 +130,13 @@ Add code to show the total number of people currently named to the WH senior sta
 ```{r, echo=FALSE}
 
 
-gttables <-
+
 count(staff_data_scraped) <- count(staff_data_archived) %>%
-  title = "Total Number of People Currently Named to the WH Senior Staff vs. Previous Total Number"
+  gt()%>%
+  tab_header(
+  title = "Total Number of People Currently Named to the WH Senior Staff vs. Previous Total Number")
+
+  
   
 
 
